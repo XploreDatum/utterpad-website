@@ -15,8 +15,10 @@
   --warning:   #d97757;
   --error:     #e5484d;
 
-  --serif: "Fraunces", "Iowan Old Style", "Apple Garamond", Georgia, serif;
-  --mono:  "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  /* Share Tech is the display + body voice; Share Tech Mono handles all
+     technical / mono labels and chips. Both from Google Fonts. */
+  --serif: "Share Tech", "Helvetica Neue", Arial, sans-serif;
+  --mono:  "Share Tech Mono", ui-monospace, "SF Mono", Menlo, monospace;
 
   --content: 1320px;
   --gutter:  clamp(20px, 4vw, 56px);
@@ -32,15 +34,16 @@ body {
   font-family: var(--serif);
   font-weight: 400;
   font-size: 16px;
-  line-height: 1.55;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: geometricPrecision;
-  letter-spacing: -0.005em;
+  letter-spacing: 0;          /* Share Tech is already pretty tight */
   overflow-x: hidden;
 }
 
 a { color: inherit; text-decoration: none; }
-em { font-style: italic; font-variation-settings: "SOFT" 100, "WONK" 1; font-weight: 400; }
+/* Share Tech has no italic — fake the editorial cadence with letter-spacing + color */
+em { font-style: normal; letter-spacing: 0.04em; color: var(--text); }
 code { font-family: var(--mono); font-size: 0.92em; color: var(--accent); }
 
 .mono { font-family: var(--mono); font-feature-settings: "tnum" 1, "zero" 1; letter-spacing: 0; }
@@ -70,9 +73,10 @@ code { font-family: var(--mono); font-size: 0.92em; color: var(--accent); }
 .brand-mark { width: 26px; height: 26px; }
 .brand-text {
   font-family: var(--serif);
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 .topnav {
   display: flex; gap: 24px; justify-self: center;
@@ -151,24 +155,22 @@ code { font-family: var(--mono); font-size: 0.92em; color: var(--accent); }
 
 .hero__title {
   font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(56px, 11vw, 168px);
-  line-height: 0.92;
-  letter-spacing: -0.045em;
+  font-weight: 400;
+  font-size: clamp(64px, 13vw, 200px);   /* Share Tech is narrow — push the scale */
+  line-height: 0.95;
+  letter-spacing: -0.01em;
   margin: 0 0 36px;
-  font-variation-settings: "opsz" 144;
+  text-transform: uppercase;             /* Share Tech sings in all caps */
 }
 .hero__title .line { display: block; }
 .hero__title .line--italic {
-  font-style: italic;
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  font-weight: 300;
   color: var(--text-2);
+  letter-spacing: 0.05em;
   padding-left: clamp(20px, 6vw, 88px);
 }
 .hero__title .line--accent {
   color: var(--accent);
-  font-weight: 500;
+  letter-spacing: -0.02em;
 }
 
 .hero__lede {
@@ -238,17 +240,16 @@ code { font-family: var(--mono); font-size: 0.92em; color: var(--accent); }
 }
 .section-head h2 {
   font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(40px, 6vw, 84px);
+  font-weight: 400;
+  font-size: clamp(44px, 6.5vw, 96px);
   line-height: 1.02;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.005em;
   margin: 0;
-  font-variation-settings: "opsz" 144;
+  text-transform: uppercase;
 }
 .section-head h2 em {
-  font-style: italic;
   color: var(--text-2);
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  letter-spacing: 0.04em;
 }
 
 /* ─────────────────────────── pillars ─────────────────────────── */
@@ -289,11 +290,12 @@ code { font-family: var(--mono); font-size: 0.92em; color: var(--accent); }
 }
 .pillar h3 {
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: clamp(20px, 2vw, 26px);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-weight: 400;
+  font-size: clamp(22px, 2vw, 28px);
+  letter-spacing: 0;
+  line-height: 1.18;
   margin: 0 0 12px;
+  text-transform: uppercase;
 }
 .pillar p {
   font-size: 14.5px;
@@ -328,10 +330,11 @@ code { font-family: var(--mono); font-size: 0.92em; color: var(--accent); }
 }
 .flow__steps h4 {
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: 22px;
-  letter-spacing: -0.015em;
+  font-weight: 400;
+  font-size: 24px;
+  letter-spacing: 0.01em;
   margin: 0;
+  text-transform: uppercase;
 }
 .flow__steps p {
   font-size: 13.5px;
@@ -383,10 +386,11 @@ code { font-family: var(--mono); font-size: 0.92em; color: var(--accent); }
 }
 .matrix__head h3 {
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: 20px;
-  letter-spacing: -0.015em;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: 0.02em;
   margin: 0;
+  text-transform: uppercase;
 }
 .dot { width: 8px; height: 8px; border-radius: 50%; }
 .dot--local { background: var(--accent); box-shadow: 0 0 12px var(--accent); }
@@ -402,9 +406,10 @@ code { font-family: var(--mono); font-size: 0.92em; color: var(--accent); }
 .matrix li:last-child { border-bottom: none; }
 .m-name {
   font-family: var(--serif);
-  font-weight: 500;
-  font-size: 16.5px;
-  letter-spacing: -0.005em;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 .m-tier {
   align-self: center;
@@ -468,12 +473,18 @@ code { font-family: var(--mono); font-size: 0.92em; color: var(--accent); }
 .num:last-child { border-right: none; }
 .num__big {
   font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(48px, 6vw, 96px);
+  font-weight: 400;
+  font-size: clamp(56px, 7vw, 112px);
   line-height: 1;
-  letter-spacing: -0.04em;
+  letter-spacing: -0.02em;
   margin-bottom: 12px;
-  font-variation-settings: "opsz" 144;
+  color: var(--text);
+}
+.num__plus {
+  color: var(--accent);
+  font-size: 0.7em;
+  vertical-align: 0.15em;
+  margin-left: 2px;
 }
 .num__label {
   font-size: 10.5px;
@@ -491,31 +502,18 @@ code { font-family: var(--mono); font-size: 0.92em; color: var(--accent); }
 }
 .bottom-cta__head {
   font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(48px, 7vw, 112px);
+  font-weight: 400;
+  font-size: clamp(52px, 8vw, 128px);
   line-height: 1.02;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.005em;
   margin: 0 0 18px;
-  font-variation-settings: "opsz" 144;
+  text-transform: uppercase;
 }
 .bottom-cta__sub {
   font-size: 16px;
   color: var(--text-2);
   margin: 0 0 32px;
 }
-.install {
-  display: inline-block;
-  text-align: left;
-  margin: 36px auto 0;
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 16px 20px;
-  font-size: 11.5px;
-  color: var(--text-2);
-  line-height: 1.65;
-}
-
 /* ─────────────────────────── footer ─────────────────────────── */
 .foot {
   max-width: var(--content);

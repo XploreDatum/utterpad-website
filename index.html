@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://utterpad.com" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..900,30..100,0..1&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link rel="stylesheet" href="assets/style.css" />
 </head>
@@ -40,7 +40,6 @@
     <a href="#engines">Engines</a>
     <a href="#how">How it works</a>
     <a href="#privacy">Privacy</a>
-    <a href="https://github.com/XploreDatum/UtterPad" target="_blank" rel="noopener">Source</a>
   </nav>
   <a class="cta cta--mini" href="https://github.com/XploreDatum/utterpad-releases/releases/latest">Download</a>
 </header>
@@ -49,9 +48,7 @@
 <section class="hero">
   <div class="hero__idx mono">01 / 06 — INDEX</div>
   <div class="hero__meta mono">
-    <div>v0.1.0</div>
-    <div>Apple Silicon · Intel · macOS 14+</div>
-    <div>Signed · Notarized</div>
+    <div>For macOS</div>
   </div>
 
   <h1 class="hero__title">
@@ -62,16 +59,13 @@
 
   <p class="hero__lede">
     A native macOS workshop for turning audio and video into <em>SRT, VTT, TXT, ASS</em> and <em>JSON</em> subtitles
-    — using Whisper.cpp, Apple Speech, Parakeet or any cloud model you bring keys for.
-    No round-trip to a SaaS, no usage caps, no microphone access requested.
+    — fast, batch-friendly, with the engine you pick. No SaaS round-trips. No usage caps.
   </p>
 
   <div class="hero__ctas">
     <a class="cta cta--primary" href="https://github.com/XploreDatum/utterpad-releases/releases/latest">
       <span>Download for macOS</span>
-      <span class="cta__chip mono">.dmg · 4.9 MB</span>
     </a>
-    <a class="cta cta--ghost" href="https://github.com/XploreDatum/UtterPad">View source</a>
   </div>
 
   <!-- ───── waveform visual ───── -->
@@ -237,19 +231,19 @@
 <!-- ─────────── numbers ─────────── -->
 <section class="numbers">
   <div class="num">
-    <div class="num__big">12</div>
-    <div class="num__label mono">whisper.cpp model tiers</div>
+    <div class="num__big">12<span class="num__plus">+</span></div>
+    <div class="num__label mono">Models</div>
   </div>
   <div class="num">
-    <div class="num__big">5</div>
+    <div class="num__big">5<span class="num__plus">+</span></div>
     <div class="num__label mono">export formats</div>
   </div>
   <div class="num">
-    <div class="num__big">9</div>
+    <div class="num__big">9<span class="num__plus">+</span></div>
     <div class="num__label mono">transcription engines</div>
   </div>
   <div class="num">
-    <div class="num__big">14</div>
+    <div class="num__big">14<span class="num__plus">+</span></div>
     <div class="num__label mono">supported a/v containers</div>
   </div>
   <div class="num">
@@ -263,27 +257,19 @@
   <div class="section-head">
     <div class="section-head__idx mono">06 / 06 — DOWNLOAD</div>
   </div>
-  <h2 class="bottom-cta__head">Get the build that just notarized.</h2>
-  <p class="bottom-cta__sub">macOS 14 Sonoma or later · Apple Silicon recommended · Universal binary, ~5 MB DMG.</p>
+  <h2 class="bottom-cta__head">Get your subtitles ready.</h2>
+  <p class="bottom-cta__sub">Free. Native. On your machine.</p>
   <a class="cta cta--primary cta--large" href="https://github.com/XploreDatum/utterpad-releases/releases/latest">
-    <span>Download UtterPad 0.1.0</span>
-    <span class="cta__chip mono">DMG · signed by XPLOREDATUM TECHNOLOGIES LLP</span>
+    <span>Download UtterPad</span>
   </a>
-  <pre class="install mono">$ codesign -dv --verbose=2 /Applications/UtterPad.app
-Authority=Developer ID Application: XPLOREDATUM TECHNOLOGIES LLP (SUHRWJYB95)
-Authority=Developer ID Certification Authority
-Authority=Apple Root CA</pre>
 </section>
 
 <footer class="foot">
   <div class="foot__col">
-    <div class="mono">© 2026 XploreDatum Technologies LLP</div>
-    <div class="mono foot__dim">Built in India · Notarized by Apple</div>
+    <div class="mono">© 2026 XploreDatum</div>
   </div>
   <div class="foot__col">
-    <a href="https://github.com/XploreDatum/UtterPad">Source</a>
-    <a href="https://github.com/XploreDatum/utterpad-releases/releases">Releases</a>
-    <a href="mailto:hello@xploredatum.com">Contact</a>
+    <a href="mailto:utterpad@xploredatum.com">utterpad@xploredatum.com</a>
   </div>
 </footer>
 
