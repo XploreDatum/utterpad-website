@@ -60,3 +60,15 @@
   }, { threshold: 0.15 });
   els.forEach(e => io.observe(e));
 })();
+
+// ─── explicit theme toggle: dark by default, persisted, no system-pref sniffing ───
+(function () {
+  const btn = document.getElementById("theme-toggle");
+  if (!btn) return;
+  btn.addEventListener("click", function () {
+    const current = document.documentElement.getAttribute("data-theme") || "dark";
+    const next = current === "dark" ? "light" : "dark";
+    document.documentElement.setAttribute("data-theme", next);
+    try { localStorage.setItem("utterpad-theme", next); } catch (e) {}
+  });
+})();

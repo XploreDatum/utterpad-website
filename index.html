@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="utf-8" />
 <title>UtterPad — Subtitles, decoded on your machine.</title>
@@ -12,8 +12,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32"  href="assets/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256.png" />
+<link rel="apple-touch-icon" sizes="512x512" href="assets/favicon-512.png" />
+<meta property="og:image" content="https://utterpad.com/assets/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://utterpad.com/assets/og-image.png" />
 <link rel="stylesheet" href="assets/style.css" />
+<script>
+  // Apply persisted theme BEFORE first paint to avoid a flash.
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem("utterpad-theme"); } catch (e) {}
+    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
 </head>
 <body>
 
@@ -23,17 +36,8 @@
 <!-- ─────────── topbar ─────────── -->
 <header class="topbar">
   <a href="#" class="brand" aria-label="UtterPad">
-    <svg class="brand-mark" viewBox="0 0 32 32" fill="none">
-      <rect x="2" y="2" width="28" height="28" rx="7" fill="var(--accent)" />
-      <g stroke="white" stroke-width="2" stroke-linecap="round">
-        <line x1="8"  y1="16.5" x2="8"  y2="15.5" />
-        <line x1="11" y1="17"   x2="11" y2="14" />
-        <line x1="14" y1="18.5" x2="14" y2="11.5" />
-        <line x1="17" y1="19"   x2="17" y2="11" />
-        <line x1="20" y1="17.5" x2="20" y2="13.5" />
-        <line x1="23" y1="16.5" x2="23" y2="15.5" />
-      </g>
-    </svg>
+    <img class="brand-mark brand-mark--dark"  src="assets/logo-dark.png"  alt="" />
+    <img class="brand-mark brand-mark--light" src="assets/logo-light.png" alt="" />
     <span class="brand-text">UtterPad</span>
   </a>
   <nav class="topnav">
@@ -41,12 +45,23 @@
     <a href="#how">How it works</a>
     <a href="#privacy">Privacy</a>
   </nav>
-  <a class="cta cta--mini" href="https://github.com/XploreDatum/utterpad-releases/releases/latest">Download</a>
+  <div class="top-actions">
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+      <svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+      </svg>
+      <svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4.2" />
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+      </svg>
+    </button>
+    <a class="cta cta--mini" href="https://github.com/XploreDatum/utterpad-releases/releases/latest">Download</a>
+  </div>
 </header>
 
 <!-- ─────────── hero ─────────── -->
 <section class="hero">
-  <div class="hero__idx mono">01 / 06 — INDEX</div>
+  <div class="hero__idx mono">01 / 07 — INDEX</div>
   <div class="hero__meta mono">
     <div>For macOS</div>
   </div>
@@ -84,10 +99,22 @@
   </div>
 </section>
 
+<!-- ─────────── screenshot ─────────── -->
+<section class="shot">
+  <div class="section-head">
+    <div class="section-head__idx mono">02 / 07 — SCREENSHOT</div>
+    <h2>The workshop, on your machine.</h2>
+  </div>
+  <div class="shot__frame">
+    <img class="shot__img shot__img--dark"  src="assets/screenshot-dark.png"  alt="UtterPad — dark mode" />
+    <img class="shot__img shot__img--light" src="assets/screenshot-light.png" alt="UtterPad — light mode" />
+  </div>
+</section>
+
 <!-- ─────────── pillars ─────────── -->
 <section class="pillars" id="pillars">
   <div class="section-head">
-    <div class="section-head__idx mono">02 / 06 — PILLARS</div>
+    <div class="section-head__idx mono">03 / 07 — PILLARS</div>
     <h2>Three certainties.</h2>
   </div>
   <div class="pillars__grid">
@@ -118,7 +145,7 @@
 <!-- ─────────── how it works ─────────── -->
 <section class="flow" id="how">
   <div class="section-head">
-    <div class="section-head__idx mono">03 / 06 — PIPELINE</div>
+    <div class="section-head__idx mono">04 / 07 — PIPELINE</div>
     <h2><em>Four phases.</em> Each one resets.</h2>
   </div>
 
@@ -162,7 +189,7 @@
 <!-- ─────────── engines matrix ─────────── -->
 <section class="engines" id="engines">
   <div class="section-head">
-    <div class="section-head__idx mono">04 / 06 — ENGINE MATRIX</div>
+    <div class="section-head__idx mono">05 / 07 — ENGINE MATRIX</div>
     <h2>Pick the right tool for the recording.</h2>
   </div>
 
@@ -205,7 +232,7 @@
 <!-- ─────────── privacy ─────────── -->
 <section class="privacy" id="privacy">
   <div class="section-head">
-    <div class="section-head__idx mono">05 / 06 — PRIVACY</div>
+    <div class="section-head__idx mono">06 / 07 — PRIVACY</div>
     <h2><em>What leaves your machine?</em></h2>
   </div>
   <dl class="privacy__list">
@@ -255,7 +282,7 @@
 <!-- ─────────── footer CTA ─────────── -->
 <section class="bottom-cta">
   <div class="section-head">
-    <div class="section-head__idx mono">06 / 06 — DOWNLOAD</div>
+    <div class="section-head__idx mono">07 / 07 — DOWNLOAD</div>
   </div>
   <h2 class="bottom-cta__head">Get your subtitles ready.</h2>
   <p class="bottom-cta__sub">Free. Native. On your machine.</p>
