@@ -4,9 +4,9 @@
 <meta charset="utf-8" />
 <title>UtterPad — Subtitles, decoded on your machine.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description" content="Native macOS subtitle generator. Drop audio or video, transcribe locally with Whisper.cpp, Apple Speech, or Parakeet — or via Groq, ElevenLabs, Deepgram, Mistral, Gemini. Export SRT / VTT / TXT / ASS / JSON." />
+<meta name="description" content="Native macOS subtitle generator. Drop audio or video, transcribe locally with Whisper, Apple Speech, or Parakeet — or via Groq, ElevenLabs, Deepgram, Mistral, Gemini. Export SRT / VTT / TXT / ASS / JSON." />
 <meta property="og:title" content="UtterPad — Subtitles, decoded on your machine." />
-<meta property="og:description" content="Native macOS subtitle generator. Local Whisper.cpp / Apple Speech / Parakeet + cloud providers. Free, signed, notarized." />
+<meta property="og:description" content="Native macOS subtitle generator. Local Whisper / Apple Speech / Parakeet + cloud providers. Free, signed, notarized." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://utterpad.com" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -134,16 +134,15 @@
     <article class="pillar">
       <div class="pillar__num mono">P · 01</div>
       <h3>On-device by default.</h3>
-      <p>Audio leaves your file only if you point UtterPad at a cloud model. The default
-        pipeline is Whisper.cpp through Metal, or Apple's Speech framework. No network,
-        no telemetry.</p>
+      <p>Audio leaves your file only if you point UtterPad at a cloud model.
+        The default engines run entirely on your Mac. No network, no telemetry.</p>
     </article>
     <article class="pillar">
       <div class="pillar__num mono">P · 02</div>
       <h3>Pro-tool surface.</h3>
       <p>Batch queue with per-row model, language, output-format and folder overrides.
         Drag-reorderable, drag-resizable columns. Phased progress bars that reset between
-        extract and transcribe. Built for editors, not consumers.</p>
+        extract and transcribe.</p>
     </article>
     <article class="pillar">
       <div class="pillar__num mono">P · 03</div>
@@ -166,33 +165,24 @@
     <li>
       <div class="flow__step-num mono">step 01</div>
       <h4>Extract</h4>
-      <p><code>AVAssetReader</code> + <code>AVAudioConverter</code> decode any video or
-        audio into 16 kHz mono Float32 — no ffmpeg, no GPL.</p>
       <div class="flow__bar"><div style="--p:.92"></div></div>
       <div class="flow__phase mono">extracting audio · 92%</div>
     </li>
     <li>
       <div class="flow__step-num mono">step 02</div>
       <h4>Transcribe</h4>
-      <p>The selected engine receives the PCM. Whisper.cpp streams segments back via
-        delegate; Apple Speech is internally chunked; cloud APIs return verbose JSON.</p>
       <div class="flow__bar"><div style="--p:.47"></div></div>
       <div class="flow__phase mono">transcribing · 47%</div>
     </li>
     <li>
       <div class="flow__step-num mono">step 03</div>
       <h4>Live segments</h4>
-      <p>Every newly-finalized segment is appended to the transcript pane in real time.
-        Real progress comes from <code>lastSegment.endTime / total</code>, not an
-        estimate.</p>
       <div class="flow__bar"><div style="--p:.71"></div></div>
       <div class="flow__phase mono">transcribing · 71%</div>
     </li>
     <li>
       <div class="flow__step-num mono">step 04</div>
       <h4>Export</h4>
-      <p>SRT, VTT, TXT, ASS, JSON written atomically to the configured destination.
-        BOM-aware. Speaker tags optional.</p>
       <div class="flow__bar"><div style="--p:1"></div></div>
       <div class="flow__phase mono">done · 100%</div>
     </li>
@@ -211,19 +201,19 @@
       <header class="matrix__head"><span class="dot dot--local"></span><h3>Local · on-device</h3></header>
       <ul>
         <li>
-          <span class="m-name">Whisper.cpp</span>
+          <span class="m-name">Whisper</span>
           <span class="m-tier mono">Tiny · Base · Small · Medium · Large v3 · Turbo</span>
-          <span class="m-note">GGUF downloaded from Hugging Face into Application Support. Metal accelerated.</span>
+          <span class="m-note">Six tiers from Tiny to Large v3 Turbo. Downloads on demand, runs entirely on-device.</span>
         </li>
         <li>
           <span class="m-name">Apple Speech</span>
           <span class="m-tier mono">on-device · macOS 14+</span>
-          <span class="m-note">Native <code>SFSpeechRecognizer</code>. No download, no network. Chunked internally for long files.</span>
+          <span class="m-note">Already on your Mac. No download, no network, no setup. Handles long files cleanly.</span>
         </li>
         <li>
           <span class="m-name">Parakeet</span>
           <span class="m-tier mono">V2 (en) · V3 (en + 25 EU)</span>
-          <span class="m-note">NVIDIA Parakeet via Apple's FluidAudio SDK. CoreML accelerated, realtime-capable.</span>
+          <span class="m-note">Lightning fast on Apple Silicon. Realtime-capable.</span>
         </li>
       </ul>
     </div>
@@ -236,7 +226,7 @@
         <li><span class="m-name">Deepgram</span><span class="m-tier mono">Nova-3 · Nova-3 Medical</span><span class="m-note">Speaker diarization out of the box.</span></li>
         <li><span class="m-name">Mistral</span><span class="m-tier mono">Voxtral</span><span class="m-note">Verbose JSON with segment timing.</span></li>
         <li><span class="m-name">Google Gemini</span><span class="m-tier mono">2.5 / 3.1 · Pro · Flash</span><span class="m-note">Audio-understanding via <code>generateContent</code>.</span></li>
-        <li><span class="m-name">Custom endpoint</span><span class="m-tier mono">OpenAI-compatible</span><span class="m-note">Plug in any <code>/v1/audio/transcriptions</code> endpoint. API key in Keychain.</span></li>
+        <li><span class="m-name">Custom endpoint</span><span class="m-tier mono">OpenAI-compatible</span><span class="m-note">Bring any provider. Your API key never leaves the Mac's Keychain.</span></li>
       </ul>
     </div>
   </div>
