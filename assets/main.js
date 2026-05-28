@@ -61,7 +61,7 @@
   els.forEach(e => io.observe(e));
 })();
 
-// ─── explicit theme toggle: dark by default, persisted, no system-pref sniffing ───
+// ─── theme: follows OS by default; explicit toggle overrides + persists ───
 (function () {
   const btn = document.getElementById("theme-toggle");
   if (!btn) return;
@@ -71,4 +71,16 @@
     document.documentElement.setAttribute("data-theme", next);
     try { localStorage.setItem("utterpad-theme", next); } catch (e) {}
   });
+
+  // Live-follow OS preference unless the user has picked an explicit theme.
+  const mq = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
+  if (!mq) return;
+  function onSystemChange(e) {
+    let stored = null;
+    try { stored = localStorage.getItem("utterpad-theme"); } catch (err) {}
+    if (stored === "light" || stored === "dark") return;   // user override wins
+    document.documentElement.setAttribute("data-theme", e.matches ? "light" : "dark");
+  }
+  if (mq.addEventListener) mq.addEventListener("change", onSystemChange);
+  else if (mq.addListener) mq.addListener(onSystemChange);
 })();

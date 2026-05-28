@@ -20,11 +20,20 @@
 <meta name="twitter:image" content="https://utterpad.com/assets/og-image.png" />
 <link rel="stylesheet" href="assets/style.css" />
 <script>
-  // Apply persisted theme BEFORE first paint to avoid a flash.
+  // Resolve the theme BEFORE first paint to avoid a flash.
+  // Priority: explicit user choice in localStorage > OS prefers-color-scheme > dark.
   (function () {
-    var t = null;
-    try { t = localStorage.getItem("utterpad-theme"); } catch (e) {}
-    if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+    var stored = null;
+    try { stored = localStorage.getItem("utterpad-theme"); } catch (e) {}
+    var resolved;
+    if (stored === "light" || stored === "dark") {
+      resolved = stored;
+    } else if (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) {
+      resolved = "light";
+    } else {
+      resolved = "dark";
+    }
+    document.documentElement.setAttribute("data-theme", resolved);
   })();
 </script>
 </head>
@@ -55,7 +64,7 @@
         <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
       </svg>
     </button>
-    <a class="cta cta--mini" href="https://github.com/XploreDatum/utterpad-releases/releases/latest">Download</a>
+    <a class="cta cta--mini" href="https://github.com/XploreDatum/utterpad-releases/releases/latest/download/UtterPad.dmg">Download</a>
   </div>
 </header>
 
@@ -78,7 +87,7 @@
   </p>
 
   <div class="hero__ctas">
-    <a class="cta cta--primary" href="https://github.com/XploreDatum/utterpad-releases/releases/latest">
+    <a class="cta cta--primary" href="https://github.com/XploreDatum/utterpad-releases/releases/latest/download/UtterPad.dmg">
       <span>Download for macOS</span>
     </a>
   </div>
@@ -286,7 +295,7 @@
   </div>
   <h2 class="bottom-cta__head">Get your subtitles ready.</h2>
   <p class="bottom-cta__sub">Free. Native. On your machine.</p>
-  <a class="cta cta--primary cta--large" href="https://github.com/XploreDatum/utterpad-releases/releases/latest">
+  <a class="cta cta--primary cta--large" href="https://github.com/XploreDatum/utterpad-releases/releases/latest/download/UtterPad.dmg">
     <span>Download UtterPad</span>
   </a>
 </section>
